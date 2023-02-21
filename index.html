@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
 </head>
 <body>
     <div id="calculator-container">
@@ -14,7 +14,7 @@
 
             <div id="display-body">
                 <div id="display">
-                    <p id="display-result">Hello World</p>
+                    <p id="display-result" class="starting-message">The Odin Project</p>
                 </div>
             </div>
 
@@ -40,16 +40,17 @@
                             <button class="digits">8</button>
                             <button class="digits">9</button>
                         </div>
-                        <div class="digits-container">
-                            <button class="digits">0</button>
+                        <div id='zero-container' class="digits-container">
+                            <button class="digits" style="width: 120px; ">0</button>
+                            <button class="digits" style="width: 50px; background-color: orange ">=</button>
                         </div>
                     </div>
 
                     <div id="right-column">
-                        <button></button>
-                        <button></button>
-                        <button></button>
-                        <button></button>
+                        <button class="digits" style="background-color: orange">+</button>
+                        <button class="digits" style="background-color: orange">-</button>
+                        <button class="digits" style="background-color: orange">*</button>
+                        <button class="digits" style="background-color: orange">/</button>
                     </div>
                 </div>
             </div>
