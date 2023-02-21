@@ -4,19 +4,20 @@
 }
 
 #calculator-body {
-    background-color: gray;
+    background-color: rgb(53, 50, 50);
     border: 1px solid black;
     border-radius: 5px;
     width: 300px;
-    height: 500px;
+    height: 450px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 #display-body {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
 #display {
@@ -28,11 +29,16 @@
     justify-content: flex-end;
     align-items: center;
     padding-right: 20px;
+    border-top: 4px solid black;
+    border-left: 4px solid black;
+    outline: solid 1px gray
 }
 
 #display p {
     font-size: 40px;
     font-weight: 500;
+    
+    text-shadow: 3px 2px 20px greenyellow
 }
 
 #buttons-body {
@@ -40,10 +46,7 @@
     flex-direction: column;
 }
 
-#upper-row {
-    background-color: aquamarine;
-    height: 100px;
-}
+
 
 #second-row {
     display: flex;
@@ -57,9 +60,13 @@
 }
 
 #right-column {
-    background-color: aquamarine;
+    background-color: rgb(53, 50, 50)y;
     width: 30%;
     height: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .digits-container {
@@ -75,4 +82,12 @@
     height: 50px;
     border-radius: 5px;
     font-size: 20px
+}
+
+.digits:hover {
+    filter: brightness(60%)
+}
+
+#zero-container {
+    justify-content: space-around;
 }
