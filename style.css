@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: gray
+    background-color: rgba(128, 128, 128, 0.307)
 }
 
 #calculator-container {
@@ -13,15 +13,15 @@ body {
 }
 
 #calculator-body {
-    background-color: silver;
-    border: 1px solid black;
+    background-color: rgb(63, 85, 97);
+    border: 1px solid rgb(79, 79, 79);
     border-radius: 5px;
     width: 300px;
     height: 450px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 10px 5px 5px darkgrey;
+    box-shadow: 10px 5px 5px #094041;
 }
 
 #display-body {
@@ -35,14 +35,14 @@ body {
 #display {
     width: 250px;
     height: 70px;
-    background-color: green; 
+    background-color: rgba(0, 128, 0, 0.567); 
     border-radius: 5px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding-right: 20px;
-    border-top: 4px solid black;
-    border-left: 4px solid black;
+    border-top: 4px solid #094041;
+    border-left: 4px solid #094041;
     outline: solid 1px gray
 }
 
@@ -51,7 +51,7 @@ body {
     font-weight: 500;
     font-family: myFirstFont;
     
-    text-shadow:  -5px -5px 20px whitesmoke
+    text-shadow:  -5px -5px 20px greenyellow;
 }
 
 #digitron {
@@ -63,8 +63,8 @@ body {
 
 #digitron p a{
     text-decoration: none;
-    font-weight: lighter
-
+    font-weight: lighter;
+    color: rgba(207, 193, 193, 0.483);
 }
 
 
@@ -73,10 +73,21 @@ body {
     flex-direction: column;
 }
 
+#upper-row {
+    display: flex;
+}
+
+#upper-row div {
+    margin-left: 25px;
+    margin-bottom: 5px;
+}
+
 
 
 #second-row {
     display: flex;
+    height: 250px;
+    align-items: flex-end;
 }
 
 #left-column {
@@ -87,16 +98,6 @@ body {
     flex-direction: column;
 }
 
-#right-column {
-    background-color: rgb(53, 50, 50)y;
-    width: 30%;
-    height: 290px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-
 .digits-container {
     height: 25%;
     width: 100%;
@@ -105,12 +106,29 @@ body {
     justify-content: space-around;
 }
 
-.digits {
+#right-column {
+    background-color: rgb(53, 50, 50)y;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.digits, .operations, .equal, .clear, #power-off {
     width: 50px;
     height: 50px;
     border-radius: 5px;
-    font-size: 20px
+    font-size: 20px;
+    background-color: rgb(194, 194, 194);
 }
+
+.operation-div {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 .digits:hover {
     filter: brightness(60%)
