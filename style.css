@@ -13,7 +13,7 @@ body {
 }
 
 #calculator-body {
-    background-color: rgb(63, 85, 97);
+    background-color: rgba(55, 64, 121, 0.946);
     border: 1px solid rgb(79, 79, 79);
     border-radius: 5px;
     width: 300px;
@@ -32,10 +32,13 @@ body {
     margin-top: 20px;
 }
 
+.hide {
+    display: none;
+}
+
 #display {
     width: 250px;
-    height: 70px;
-    background-color: rgba(0, 128, 0, 0.567); 
+    height: 70px; 
     border-radius: 5px;
     display: flex;
     justify-content: flex-end;
@@ -43,25 +46,34 @@ body {
     padding-right: 20px;
     border-top: 4px solid #094041;
     border-left: 4px solid #094041;
-    outline: solid 1px gray
+    outline: solid 1px gray;
+    overflow: hidden;
+}
+
+.powerOff {
+    background-color: rgba(0, 128, 0, 0.139);
+}
+
+.powerOn {
+    background-color: rgb(0, 128, 0);
 }
 
 #display p {
-    font-size: 50px;
+    font-size: 60px;
     font-weight: 500;
     font-family: myFirstFont;
     
-    text-shadow:  -5px -5px 20px greenyellow;
+    text-shadow:  -5px -5px 20px rgb(237, 255, 209);
 }
 
-#digitron {
+.digitron {
     align-self: flex-end;
     margin-right: 20px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: italic;
 }
 
-#digitron p a{
+.digitron p a{
     text-decoration: none;
     font-weight: lighter;
     color: rgba(207, 193, 193, 0.483);
@@ -118,9 +130,9 @@ body {
 .digits, .operations, .equal, .clear, #power-off {
     width: 50px;
     height: 50px;
-    border-radius: 5px;
+    border-radius: 50%;
     font-size: 20px;
-    background-color: rgb(194, 194, 194);
+    background-color: rgba(255, 255, 255, 0.808);
 }
 
 .operation-div {
@@ -130,10 +142,11 @@ body {
 }
 
 
-.digits:hover {
+.digits:active, .operations:active, .equal:active, #power-off:active, .clear:active {
     filter: brightness(60%)
 }
 
 #zero-container {
     justify-content: space-around;
 }
+

@@ -14,19 +14,20 @@
         <div id="calculator-body">
 
             <div id="display-body">
-                <div id="display">
-                    <p id="display-result" class="starting-message">0</p>
+                <div id="display" class="powerOff">
+                    <p id="display-result" class="starting-message hide">0</p>
                 </div>
-                <div id="digitron"><p><a href="https://en.wikipedia.org/wiki/Digitron_(company)" target="_blank">Digitron DB-800</a></p></div>
+                <div class="digitron"><p><a href="https://en.wikipedia.org/wiki/Digitron_(company)" target="_blank">Digitron DB-800</a></p></div>
             </div>
         
             <div id='buttons-body'>
                 <div id="upper-row">
                     <div>
-                        <button id="power-off" style="background-color: rgb(195, 29, 29); border-radius: 50%; color: white;"><i class="fa-solid fa-power-off"></i></button>
+                        <button id="power-off" style="background-color: rgba(195, 29, 29, 0.94); border-radius: 50%; color: white;"><i class="fa-solid fa-power-off"></i></button>
+                        <audio id="audio" src="./free-sound-effects-ELECTRIC.mp3"></audio>
                     </div>
                     <div>
-                        <button class="clear" style="background-color: rgb(28, 212, 114); border-radius: 50%; color: white; margin-left: -7px">C</button>
+                        <button class="clear" style="background-color: rgba(28, 212, 114, 0.897); border-radius: 50%; color: white; margin-left: -7px">C</button>
                     </div>
                 </div>
 
