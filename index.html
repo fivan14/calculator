@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://kit.fontawesome.com/d060e1b308.js" crossorigin="anonymous"></script>
     <script src="./script.js" defer></script>
     <link rel="stylesheet" href="./style.css">
     <meta charset="UTF-8">
@@ -14,14 +15,19 @@
 
             <div id="display-body">
                 <div id="display">
-                    <p id="display-result" class="starting-message">calculator</p>
+                    <p id="display-result" class="starting-message">0</p>
                 </div>
-                <div id="digitron"><p><a href="https://en.wikipedia.org/wiki/Digitron_(company)" target="_blank">Digitron</a></p></div>
+                <div id="digitron"><p><a href="https://en.wikipedia.org/wiki/Digitron_(company)" target="_blank">Digitron DB-800</a></p></div>
             </div>
         
             <div id='buttons-body'>
                 <div id="upper-row">
-
+                    <div>
+                        <button id="power-off" style="background-color: rgb(195, 29, 29); border-radius: 50%; color: white;"><i class="fa-solid fa-power-off"></i></button>
+                    </div>
+                    <div>
+                        <button class="clear" style="background-color: rgb(28, 212, 114); border-radius: 50%; color: white; margin-left: -7px">C</button>
+                    </div>
                 </div>
 
                 <div id="second-row">
@@ -43,15 +49,23 @@
                         </div>
                         <div id='zero-container' class="digits-container">
                             <button class="digits" style="width: 120px; ">0</button>
-                            <button class="digits" style="width: 50px; background-color: orange; border-radius: 50%;">=</button>
+                            <button class="equal" style="width: 50px; background-color: orange; border-radius: 50%;">=</button>
                         </div>
                     </div>
 
                     <div id="right-column">
-                        <button class="digits" style="background-color: orange; border-radius: 50%;">+</button>
-                        <button class="digits" style="background-color: orange; border-radius: 50%;">-</button>
-                        <button class="digits" style="background-color: orange; border-radius: 50%;">*</button>
-                        <button class="digits" style="background-color: orange; border-radius: 50%;">/</button>
+                        <div class="operation-div">
+                            <button class="operations" style="background-color: orange; border-radius: 50%;">+</button>
+                        </div>
+                        <div class="operation-div">
+                            <button class="operations" style="background-color: orange; border-radius: 50%;">-</button>
+                        </div>
+                        <div class="operation-div">
+                            <button class=" operations" style="background-color: orange; border-radius: 50%;">*</button>
+                        </div>
+                        <div class="operation-div">
+                            <button class="operations" style="background-color: orange; border-radius: 50%;">/</button>
+                        </div>
                     </div>
                 </div>
             </div>
