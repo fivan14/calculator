@@ -10,6 +10,7 @@ body {
 #calculator-container {
     display: flex;
     justify-content: center;
+    margin-top: 200px;
 }
 
 #calculator-body {
@@ -29,7 +30,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .hide {
@@ -59,9 +60,10 @@ body {
 }
 
 #display p {
-    font-size: 60px;
+    font-size: 65px;
     font-weight: 500;
     font-family: myFirstFont;
+    align-self: center;
     
     text-shadow:  -5px -5px 20px rgb(237, 255, 209);
 }
