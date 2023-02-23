@@ -8,8 +8,10 @@ const audio = document.querySelector('audio')
 const screen = document.querySelector('#display')
 
 let num = 0;
+let num2 = 0;
 let operator = ''
 
+// function blinking zero display
 
 
 // function is float
@@ -57,6 +59,9 @@ function clearResult() {
     display.textContent = 0
     num = 0
     operator = ''
+    if (!display.classList.contains('pulse')) {
+        display.classList.toggle('pulse')
+    }
 }
 
 function powerOff() {
@@ -75,20 +80,30 @@ function powerOff() {
     setTimeout(() => {
         power.removeAttribute('disabled')
     }, 500)
-    
+
+    if (!display.classList.contains('pulse')) {
+        display.classList.toggle('pulse')
+    }
 }
 
 //*****************************************/
 
 digits.forEach(digit => {
-    
+
     digit.addEventListener('click', event => {
-        console.log(`${num}`)
-        //let hideStatus = display.classList.contains('hide');
-        if (event.target.classList.contains('digits') && display.textContent === `${num}`) {
-            display.textContent = ''
+        if (display.textContent.length === 8 && display.textContent != `${num}`) {
+            return true
+        } else {
+            if (display.classList.contains('pulse')) {
+                display.classList.toggle('pulse')
+            }
+            console.log(`${num}`)
+            //let hideStatus = display.classList.contains('hide');
+            if (event.target.classList.contains('digits') && display.textContent === `${num}`) {
+                display.textContent = ''
+            }
+            display.textContent += event.target.textContent
         }
-        display.textContent += event.target.textContent
     })
 })
 
@@ -99,45 +114,47 @@ and add operator to operator variable
 */
 
 operators.addEventListener('click', event => {
-    
-    if (!operator) {
-        addFirstNumber(event.target.textContent)
-        console.log(num, operator)
-    } else {
-        operatorSign = event.target.textContent
-        let final = operate(num, Number.parseFloat(display.textContent), operatorSign)
 
-        // check if result fit the screen if not
-
-        if (`${final}`.length > 8 && isFloat(final)) {
-            display.textContent = final.toFixed(2)
-            num = final.toFixed(2)
-            console.log({num})
-            operator = event.target.textContent
-        } else {
-            display.textContent = final
-            num = final
-            operator = event.target.textContent
-        }
+        if (event.target.classList.contains('operations')) {
+            if (!operator) {
+                addFirstNumber(event.target.textContent)
+                console.log(num, operator)
+            } else {
+                let operatorSign = event.target.textContent
+                let final = operate(num, Number.parseFloat(display.textContent), operatorSign)
         
-    }
+                // check if result fit the screen if not
+        
+                if (`${final}`.length > 8 && isFloat(final)) {
+                    display.textContent = final.toFixed(2)
+                    num = final.toFixed(2)
+                    console.log({num})
+                    operator = event.target.textContent
+                } else {
+                    display.textContent = final
+                    num = final
+                    operator = event.target.textContent
+                }
+            }
+        }
 })
 
 equal.addEventListener('click', event => {
     let final = operate(num, Number.parseFloat(display.textContent), operator)
+
     if (`${final}`.length > 8 && isFloat(final)) {
         display.textContent = final.toFixed(2)
         num = final.toFixed(2)
+        operator = ''
     } else if (`${final}`.length > 8) {
-        display.textContent = 'error'
-        console.log(final)
-        console.log(final.toExponential())
+        let str = `${final.toExponential()}`.split('e')
+        display.textContent = str[0].substring(0, 4) + 'e' + str[1]
         num = final
+        operator = ''
     } else {
         display.textContent = final
-        console.log(final)
-        console.log(final.toExponential())
         num = final
+        operator = ''
     }
 })
 
@@ -161,5 +178,3 @@ function operate(num1, num2, operator) {
 
     }       
 }
-
-

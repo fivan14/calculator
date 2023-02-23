@@ -3,14 +3,21 @@
     src: url(./digital-7.mono.ttf)
 }
 
-body {
-    background-color: rgba(128, 128, 128, 0.307)
+@keyframes pulse {
+    90% {
+        opacity: 0;
+    }
 }
+
+body {
+    background-color: rgba(0, 0, 0, 0.455)
+}
+
 
 #calculator-container {
     display: flex;
     justify-content: center;
-    margin-top: 200px;
+    margin-top: 50px;
 }
 
 #calculator-body {
@@ -66,6 +73,10 @@ body {
     align-self: center;
     
     text-shadow:  -5px -5px 20px rgb(237, 255, 209);
+}
+
+.pulse {
+    animation: pulse 1s infinite;
 }
 
 .digitron {
