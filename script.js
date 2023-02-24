@@ -6,6 +6,7 @@ const clear = document.querySelector('.clear')
 const power = document.querySelector('#power-off')
 const audio = document.querySelector('audio')
 const screen = document.querySelector('#display')
+const backspace = document.querySelector('.backspace')
 
 let num = 0;
 let num2 = 0;
@@ -163,6 +164,7 @@ clear.addEventListener('click', clearResult)
 
 power.addEventListener('click', powerOff)
 
+backspace.addEventListener('click', removeLastChar)
 
 
 function operate(num1, num2, operator) {
@@ -177,4 +179,19 @@ function operate(num1, num2, operator) {
             return multiply(num1, num2, operator)
 
     }       
+}
+
+
+function removeLastChar() {
+    if (display.textContent === '0') {
+        return true
+    }
+    let result = display.textContent.substring(0, display.textContent.length -1)
+    if (result.length === 0) {
+        display.textContent = '0'
+        display.classList.toggle('pulse')
+    } else {
+        display.textContent = result
+    }
+   
 }
