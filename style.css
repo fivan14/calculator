@@ -103,6 +103,7 @@ body {
 }
 
 #upper-row div {
+    display: flex;
     margin-left: 25px;
     margin-bottom: 5px;
 }
@@ -140,7 +141,7 @@ body {
     justify-content: space-around;
 }
 
-.digits, .operations, .equal, .clear, #power-off, .backspace {
+.digits, .operations, .equal, .clear, #power-off, .backspace, #period {
     width: 50px;
     height: 50px;
     border-radius: 50%;

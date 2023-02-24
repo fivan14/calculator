@@ -7,9 +7,9 @@ const power = document.querySelector('#power-off')
 const audio = document.querySelector('audio')
 const screen = document.querySelector('#display')
 const backspace = document.querySelector('.backspace')
+const period = document.querySelector('#period')
 
 let num = 0;
-let num2 = 0;
 let operator = ''
 
 // function blinking zero display
@@ -46,7 +46,7 @@ function multiply(one, two) {
 //functions for events
 
 function addFirstNumber(operatorValue) {
-    num = Number.parseInt(display.textContent, 10)
+    num = Number.parseFloat(display.textContent, 10)
     operator = operatorValue
 }
 
@@ -116,47 +116,25 @@ and add operator to operator variable
 
 operators.addEventListener('click', event => {
 
-        if (event.target.classList.contains('operations')) {
-            if (!operator) {
-                addFirstNumber(event.target.textContent)
-                console.log(num, operator)
-            } else {
-                let operatorSign = event.target.textContent
-                let final = operate(num, Number.parseFloat(display.textContent), operatorSign)
-        
-                // check if result fit the screen if not
-        
-                if (`${final}`.length > 8 && isFloat(final)) {
-                    display.textContent = final.toFixed(2)
-                    num = final.toFixed(2)
-                    console.log({num})
-                    operator = event.target.textContent
-                } else {
-                    display.textContent = final
-                    num = final
-                    operator = event.target.textContent
-                }
+    if (event.target.classList.contains('operations')) {
+        if (!operator) {
+            addFirstNumber(event.target.textContent)
+            console.log(num, operator)
+        } else {
+            let operatorSign = event.target.textContent
+            let final = operate(num, Number.parseFloat(display.textContent), operatorSign)
+            if (!`${final}`.includes('e')) {
+                addAndDisplayNumber(final)
+                operator = operatorSign
             }
         }
+    }
 })
 
 equal.addEventListener('click', event => {
     let final = operate(num, Number.parseFloat(display.textContent), operator)
-
-    if (`${final}`.length > 8 && isFloat(final)) {
-        display.textContent = final.toFixed(2)
-        num = final.toFixed(2)
-        operator = ''
-    } else if (`${final}`.length > 8) {
-        let str = `${final.toExponential()}`.split('e')
-        display.textContent = str[0].substring(0, 4) + 'e' + str[1]
-        num = final
-        operator = ''
-    } else {
-        display.textContent = final
-        num = final
-        operator = ''
-    }
+    addAndDisplayNumber(final)
+    operator = ''
 })
 
 clear.addEventListener('click', clearResult)
@@ -165,6 +143,8 @@ clear.addEventListener('click', clearResult)
 power.addEventListener('click', powerOff)
 
 backspace.addEventListener('click', removeLastChar)
+
+period.addEventListener('click', addDecimalPoint)
 
 
 function operate(num1, num2, operator) {
@@ -194,4 +174,28 @@ function removeLastChar() {
         display.textContent = result
     }
    
+}
+
+
+function addDecimalPoint() {
+    if (display.textContent.includes('.')) {
+        return true
+    } else {
+        display.textContent += '.'
+    }
+}
+
+
+function addAndDisplayNumber(final) {
+    if (`${final}`.length > 8 && isFloat(final)) {
+        display.textContent = final.toFixed(2)
+        num = final.toFixed(2)
+    } else if (`${final}`.length > 8) {
+        let str = `${final.toExponential()}`.split('e')
+        display.textContent = str[0].substring(0, 4) + 'e' + str[1]
+        num = final
+    } else {
+        display.textContent = Number.parseFloat(final.toFixed(2))
+        num = Number.parseFloat(final.toFixed(2))
+    }
 }
